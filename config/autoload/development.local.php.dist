@@ -26,7 +26,7 @@ return [
     			'driverClass' => PDOMySqlDriver::class,
     			'params' => [
     				'host' => '127.0.0.1',
-    				'user' => 'vagrant',
+    				'user' => 'homestead',
     				'password' => 'secret',
     				'dbname' => 'zfauth',
     			],
