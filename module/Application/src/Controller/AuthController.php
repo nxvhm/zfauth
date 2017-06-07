@@ -73,7 +73,7 @@ class AuthController extends AbstractActionController
 
                     if ($authRes->getCode() == Result::SUCCESS) {
 
-                        return $this->redirect()->toRoute('home');
+                        return $this->redirect()->toRoute('members');
                         
                     } else if ($authRes->getCode() == Result::FAILURE_CREDENTIAL_INVALID) {
                         
