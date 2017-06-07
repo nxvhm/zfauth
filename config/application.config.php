@@ -30,7 +30,7 @@ return [
         // Whether or not to enable a configuration cache.
         // If enabled, the merged configuration will be cached and used in
         // subsequent requests.
-        'config_cache_enabled' => true,
+        'config_cache_enabled' => false,
 
         // The key used to create the configuration cache file name.
         'config_cache_key' => 'application.config.cache',
@@ -65,4 +65,5 @@ return [
     // Initial configuration with which to seed the ServiceManager.
     // Should be compatible with Zend\ServiceManager\Config.
     // 'service_manager' => [],
+    
 ];
