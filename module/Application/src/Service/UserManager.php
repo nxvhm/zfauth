@@ -93,4 +93,17 @@ class UserManager {
         return $this->entityManager->getRepository(User::class)
             ->findBy([], ['id'=> $sort]);  
     }
+    /**
+     * [getUsersQuery description]
+     * @return  $query [description]
+     */
+    public function getUsersQuery() {
+        $em = $this->entityManager;
+
+        $query = $em->createQueryBuilder();
+
+        $query->select('users')->from(User::class, 'users');
+
+        return $query->getQuery();
+    }
 }

@@ -56,13 +56,16 @@ return [
                 ],
             ],    
             'members' => [
-                'type' => Literal::class,
+                'type' => Segment::class,
                 'options' => [
-                    'route'    => '/members',
+                    'route'    => '/members/[page/:page]',
                     'defaults' => [
                         'controller' => Controller\UsersController::class,
                         'action'     => 'list',
                     ],
+                    'constraints' => [
+                        'id' => '[0-9]*'
+                    ],                    
                 ],
             ],                                         
             'application' => [

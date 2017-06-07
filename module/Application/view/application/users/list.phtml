@@ -17,20 +17,22 @@
 	<?php if (isset($this->members) && count($this->members)): ?>
 	<?php foreach ($this->members as $key => $user): ?>
 		<tr>
-			<td><?= $user->getId(); ?></td>
-			<td><?= $user->getEmail(); ?></td>
-			<td><?= $user->getUsername(); ?></td>
-			<td><?= $user->getCreatedAt(); ?></td>
+			<td><?= $this->escapeHtml($user->getId()); ?></td>
+			<td><?= $this->escapeHtml($user->getEmail()); ?></td>
+			<td><?= $this->escapeHtml($user->getUsername()); ?></td>
+			<td><?= $this->escapeHtml($user->getCreatedAt()); ?></td>
 		</tr>		
 	<?php endforeach ?>
 	<?php endif ?>
 	</tbody>
 </table>
+<?php endif; ?>
+<?php if ($this->paginationData->current > $this->paginationData->first): ?>
+	<a href="<?= $this->url('members', ['page'=>$this->paginationData->previous]) ?>" title=""> Previous Page</a>&nbsp;
+<?php endif ?>
 
-<?php else: ?>
-<p class="alert alert-info text-center">
-	<u><a href="<?= $this->url('signupForm') ?>" title="Signup">Signup</a></u> to view this page
-</p>
+<?php if ($this->paginationData->current < $this->paginationData->pageCount): ?>
+	<a href="<?= $this->url('members', ['page'=>$this->paginationData->next]) ?>" title="">Next Page</a>
 <?php endif ?>
 
 </div>
