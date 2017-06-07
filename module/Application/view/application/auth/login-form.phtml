@@ -1,0 +1,76 @@
+<?php 
+	$form = $this->form;
+	$form->setAttribute('action', $this->url('loginForm'));
+	$form->prepare();
+	$formError = $form->getMessages();
+ ?>
+<h3 class="text-center">Login</h3>
+
+<!-- Flash Messages -->
+<?php if (isset($this->messages) && !empty($this->messages)): ?>
+	<?php foreach ($this->messages as $msg): ?>
+		<p class="alert alert-info"><?= $msg ?></p>		
+	<?php endforeach ?>
+<?php endif ?>
+
+<!-- Flash Messages -->
+<?php if (isset($this->errorMsg)): ?>
+	<p class="alert alert-danger">
+		<?php is_array($this->errorMsg) 
+			? print $this->errorMsg[0]
+			: print $this->errorMsg;
+		?>
+	</p>		
+<?php endif ?>
+
+
+<div class="row">
+<div class="col-xs-12 col-sm-5 col-sm-offset-3">
+
+<?= $this->form()->openTag($form) ?>
+
+	<div class="form-group">
+		<?= $this->formLabel($form->get('email')); ?>
+		<?= $this->formElement($form->get('email')); ?>		 
+
+		<?php if (isset($formError['email']) && $formError['email']): ?>
+		<p class="alert alert-warning">
+			<?php foreach ($formError['email'] as $rule => $msg): ?>
+		 		<?= $msg ?>
+			<?php endforeach ?>
+		</p>
+		<?php endif ?>   
+
+	</div>
+
+
+	<div class="form-group">
+		<?= $this->formLabel($form->get('password')); ?>
+		<?= $this->formElement($form->get('password')); ?>		 
+		<?php if (isset($formError['password']) && $formError['password']): ?>
+			<p class="alert alert-warning">
+		<?php foreach ($formError['password'] as $rule => $msg): ?>
+	 			<?= $msg ?>
+		<?php endforeach ?>
+			</p>
+		<?php endif ?>  	 
+	</div>
+
+	<div class="form-group">
+	  <?= $this->formLabel($form->get('captcha')); ?>
+	  <?= $this->formElement($form->get('captcha')); ?>
+	  <?= $this->formElementErrors($form->get('captcha')); ?>
+	  <p class="help-block">Enter the letters above as you see them.</p>
+	</div>
+
+
+	<div class="row">
+		 <div class="form-group col-xs-12 col-sm-7 col-sm-offset-2">
+			<?= $this->formRow($form->get('submit')) ?>
+	 	</div>
+	</div>
+
+<?= $this->form()->closeTag(); ?>
+
+</div>
+</div>

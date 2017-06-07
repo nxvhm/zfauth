@@ -1,0 +1,37 @@
+<h1>Members List</h1>
+<div class="row">
+<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+
+<?php if ($this->user): ?>
+<table class="table">
+	<caption>Users in our app</caption>
+	<thead>
+		<tr>
+			<th>#id</th>
+			<th>Email</th>
+			<th>Username</th>
+			<th>Created at</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php if (isset($this->members) && count($this->members)): ?>
+	<?php foreach ($this->members as $key => $user): ?>
+		<tr>
+			<td><?= $user->getId(); ?></td>
+			<td><?= $user->getEmail(); ?></td>
+			<td><?= $user->getUsername(); ?></td>
+			<td><?= $user->getCreatedAt(); ?></td>
+		</tr>		
+	<?php endforeach ?>
+	<?php endif ?>
+	</tbody>
+</table>
+
+<?php else: ?>
+<p class="alert alert-info text-center">
+	<u><a href="<?= $this->url('signupForm') ?>" title="Signup">Signup</a></u> to view this page
+</p>
+<?php endif ?>
+
+</div>
+</div>
