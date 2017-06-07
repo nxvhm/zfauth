@@ -28,16 +28,12 @@ class Module
         $this->bootstrapSession($event);
 
     }
-
-    public function onDispatch(MvcEvent $event) {                  
-
-    }
-
+    
     public function bootstrapSession($e) 
     {
-        $application = $e->getApplication()
-            ->getServiceManager()
-            ->get(SessionManager::class);                    
+        $session = new SessionManager();
+
+        $session->start();
     }
 
 }
