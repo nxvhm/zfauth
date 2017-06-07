@@ -52,3 +52,8 @@ server {
 
 }
 ```
+
+Demo User credentials
+
+email: demo@user.com
+password: demouser
