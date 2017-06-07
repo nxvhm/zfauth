@@ -26,7 +26,9 @@
 	<?php endif ?>
 	</tbody>
 </table>
-<?php endif; ?>
+
+
+
 <?php if ($this->paginationData->current > $this->paginationData->first): ?>
 	<a href="<?= $this->url('members', ['page'=>$this->paginationData->previous]) ?>" title=""> Previous Page</a>&nbsp;
 <?php endif ?>
@@ -34,6 +36,12 @@
 <?php if ($this->paginationData->current < $this->paginationData->pageCount): ?>
 	<a href="<?= $this->url('members', ['page'=>$this->paginationData->next]) ?>" title="">Next Page</a>
 <?php endif ?>
+
+<?php else: ?>
+	<p class="alert alert-info"><a href="<?= $this->url('loginForm') ?>">Login</a> to view this page</p>
+<?php endif; ?>
+
+
 
 </div>
 </div>

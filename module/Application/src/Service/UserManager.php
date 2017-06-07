@@ -84,18 +84,11 @@ class UserManager {
         
         return $user;        
     } 
-    /**
-     * Get users
-     * @return [type] [description]
-     */
-    public function getUsers($sort = 'DESC') {
 
-        return $this->entityManager->getRepository(User::class)
-            ->findBy([], ['id'=> $sort]);  
-    }
     /**
-     * [getUsersQuery description]
-     * @return  $query [description]
+     * Get query object to be used for pagination
+     * adapter
+     * @return Doctrine\ORM\Query $query
      */
     public function getUsersQuery() {
         $em = $this->entityManager;
