@@ -3,21 +3,10 @@
 ## Introduction
 
 This is a skeleton application using the Zend Framework MVC layer and module
-systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with Zend Framework.
-
 
 > ### Vagrant and VirtualBox
 >
-> The vagrant image is based on ubuntu/xenial64. If you are using VirtualBox as
-> a provider, you will need:
->
-> - Vagrant 1.8.5 or later
-> - VirtualBox 5.0.26 or later
-
-Vagrant Setup used: [Homestead(5.3.2)](https://github.com/laravel/homestead/releases/tag/v5.3.2)
-
-
+> Vagrant Setup used: [Homestead(5.3.2)](https://github.com/laravel/homestead/releases/tag/v5.3.2)
 
 
 ### Nginx setup
@@ -45,7 +34,7 @@ server {
     deny all;
   }
 
-  # Rewrite rule adapted from zendapp/public/.htaccess
+  # Rewrite rule
   if (!-e $request_filename) {
     rewrite ^.*$ /index.php last;
   }
@@ -61,8 +50,5 @@ server {
     fastcgi_index  index.php;
   }
 
-  location = /50x.html {
-      root   /var/www/default;
-  }
 }
 ```
