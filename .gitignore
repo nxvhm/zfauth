@@ -2,5 +2,6 @@
 vendor/
 config/development.config.php
 data/cache/*
+public/img/captcha/*
 !data/cache/.gitkeep
 phpunit.xml
